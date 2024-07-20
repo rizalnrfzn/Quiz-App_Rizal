@@ -20,7 +20,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
       answers.add(answer);
       questionIndex++;
 
-      Navigator.of(context).push(
+      Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => ResultScreen(
             answers: answers,

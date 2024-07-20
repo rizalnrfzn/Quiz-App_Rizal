@@ -32,7 +32,7 @@ const List<Question> questionData = [
     question: 'What happens if you change data in a StatelessWidget?',
     answers: [
       'The UI is not updated',
-      'THe UI is updated',
+      'The UI is updated',
       'The closest StatefulWidget is updated',
       'Any nasted StatefulWidgets are updated',
     ],
@@ -43,7 +43,7 @@ const List<Question> questionData = [
       'By calling setState()',
       'By calling updateData()',
       'By calling updateUI()',
-      'By calling updateState()S',
+      'By calling updateState()',
     ],
   ),
 ];

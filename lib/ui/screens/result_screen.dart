@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/data/question_data.dart';
 import 'package:quiz_app/models/result.dart';
+import 'package:quiz_app/ui/screens/splash_screen.dart';
 import 'package:quiz_app/ui/widgets/result_tile.dart';
 
 class ResultScreen extends StatefulWidget {
@@ -51,18 +52,23 @@ class _ResultScreenState extends State<ResultScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(24),
-              child: Column(
-                children: [
-                  Text(
-                    'You answered $totalCorrectAnswers out of $totalAnswers questions correctly.',
-                    textAlign: TextAlign.center,
-                  ),
-                  ...results.map(
-                    (e) => ResultTile(result: e),
-                  ),
-                ],
+            child: Center(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'You answered $totalCorrectAnswers out of $totalAnswers questions correctly.',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                    const SizedBox(height: 8),
+                    ...results.map(
+                      (e) => ResultTile(result: e),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -70,7 +76,13 @@ class _ResultScreenState extends State<ResultScreen> {
             padding: const EdgeInsets.all(24),
             child: Center(
               child: TextButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const SplashScreen(),
+                    ),
+                  );
+                },
                 label: const Text('Restart Quiz'),
                 icon: const Icon(Icons.refresh),
               ),
